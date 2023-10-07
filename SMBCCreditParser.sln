@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMBCCreditParser", "SMBCCreditParser\SMBCCreditParser.csproj", "{3BEEB09A-64C0-48A5-BB0B-0138CBE5E5E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMBCCreditParserTest", "SMBCCreditParserTest\SMBCCreditParserTest.csproj", "{86A9710D-82C1-4BED-BD3D-D4B74B7C54EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +17,30 @@ Global
 		{3BEEB09A-64C0-48A5-BB0B-0138CBE5E5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BEEB09A-64C0-48A5-BB0B-0138CBE5E5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BEEB09A-64C0-48A5-BB0B-0138CBE5E5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A9710D-82C1-4BED-BD3D-D4B74B7C54EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A9710D-82C1-4BED-BD3D-D4B74B7C54EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A9710D-82C1-4BED-BD3D-D4B74B7C54EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A9710D-82C1-4BED-BD3D-D4B74B7C54EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E7A3C39-5699-4D4B-872C-28426E8FA572}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.FileWidth = 80
+		$4.TabsToSpaces = True
+		$4.scope = text/plain
+		$0.StandardHeader = $5
 	EndGlobalSection
 EndGlobal
