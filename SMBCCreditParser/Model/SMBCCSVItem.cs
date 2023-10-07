@@ -85,7 +85,13 @@ namespace SMBCCreditParser.Model
         
         public SMBCCSVItem()
         {
-            throw new NotImplementedException();
+            Date = DateTime.MinValue;
+            StoreName = "";
+            Amount = 0M;
+            PaymentType = "";
+            PaymentCount = "";
+            PaymentAmount = 0M;
+            Note = "";
         }
     }
 }
