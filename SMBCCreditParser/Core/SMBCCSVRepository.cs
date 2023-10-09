@@ -50,9 +50,16 @@ namespace SMBCCreditParser.Core
 					{
 						currentRow = parser.ReadFields()!;
 
-						if(currentRow.Length != 7) {
-							// 7つ以外はフォーマットエラー
-							throw new ApplicationException($"行データの項目数が不正です。行番号:{parser.LineNumber},	エラーデータ:{currentRow}");
+						if(currentRow.Length == 3)
+						{
+							_logger.Debug("支払い手段についての情報行のため取り込みスキップ：{@currentRow}",currentRow);
+							continue;
+						}
+						else if(currentRow.Length != 7) {
+                            _logger.Error("行データの項目数が不正です。行番号:{parser.LineNumber}, エラーデータ:{@currentRow}",parser.LineNumber,currentRow);
+
+                            // 7つ以外はフォーマットエラー
+                            throw new ApplicationException($"行データの項目数が不正です。行番号:{parser.LineNumber},	エラーデータ:{currentRow}");
 						}
 
 						// データを割り当て
