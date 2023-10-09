@@ -12,6 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Core\" />
+    <None Remove="NLog.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />
