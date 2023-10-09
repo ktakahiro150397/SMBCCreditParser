@@ -22,6 +22,7 @@
     <PackageReference Include="coverlet.collector" Version="6.0.0"><IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 <PrivateAssets>all</PrivateAssets>
 </PackageReference>
+    <PackageReference Include="NLog" Version="5.2.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SampleFiles\" />
-    <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMBCCreditParser\SMBCCreditParser.csproj" />
