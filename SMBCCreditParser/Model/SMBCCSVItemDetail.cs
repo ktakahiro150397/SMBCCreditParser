@@ -23,21 +23,63 @@ namespace SMBCCreditParser.Model
         }
     }
 
+    public class SMBCCSVItem
+    {
+        public SMBCCSVItemHeader Header { get; set; }
+
+        public List<SMBCCSVItemDetail> Details { get; set; }
+
+        public SMBCCSVItem()
+        {
+            Header = new SMBCCSVItemHeader();
+            Details = new List<SMBCCSVItemDetail>();
+        }
+    }
+
+    /// <summary>
+    /// SMBCのCSVデータのヘッダーを表します。
+    /// </summary>
+    public class SMBCCSVItemHeader
+    {
+        /// <summary>
+        /// 名前
+        /// </summary>
+        public string PaymentUserName { get; set; }
+
+        /// <summary>
+        /// 支払い手段の番号
+        /// </summary>
+        public string PaymentMethodIdentifier { get; set; }
+
+        /// <summary>
+        /// 支払い手段の名前
+        /// </summary>
+        public string PaymentMethodName { get; set; }
+
+        public SMBCCSVItemHeader()
+        {
+            PaymentUserName = "";
+            PaymentMethodIdentifier = "";
+            PaymentMethodName = "";
+        }
+
+    }
+
     /// <summary>
     /// SMBCのCSVデータの1行のデータを表します。
     /// </summary>
-    public class SMBCCSVItem
+    public class SMBCCSVItemDetail
     {
         /// <summary>
         /// ご利用日
         /// </summary>
         public DateTime Date { get; set; }
-        
+
         /// <summary>
         /// ご利用店名
         /// </summary>
         public string StoreName { get; set; }
-        
+
         /// <summary>
         /// ご利用金額
         /// </summary>
@@ -82,8 +124,8 @@ namespace SMBCCreditParser.Model
         /// 換算日
         /// </summary>
         public DateTime? ForeignCurrencyRateDate { get; set; }
-        
-        public SMBCCSVItem()
+
+        public SMBCCSVItemDetail()
         {
             Date = DateTime.MinValue;
             StoreName = "";

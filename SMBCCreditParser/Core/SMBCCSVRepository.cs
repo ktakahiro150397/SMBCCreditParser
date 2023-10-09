@@ -62,40 +62,43 @@ namespace SMBCCreditParser.Core
                             throw new ApplicationException($"行データの項目数が不正です。行番号:{parser.LineNumber},	エラーデータ:{currentRow}");
 						}
 
-						// データを割り当て
 						var addData = new SMBCCSVItem();
 
-						addData.Date = DateTime.Parse(currentRow[0]);
-                        addData.StoreName = currentRow[1];
-						addData.Amount = decimal.Parse(currentRow[2]);
-						addData.PaymentType = currentRow[3];
-						addData.PaymentCount = currentRow[4];
-						addData.PaymentAmount = decimal.Parse(currentRow[5]);
+                        // データを割り当て
+                        var addDataDetail = new SMBCCSVItemDetail();
+
+                        addDataDetail.Date = DateTime.Parse(currentRow[0]);
+                        addDataDetail.StoreName = currentRow[1];
+						addDataDetail.Amount = decimal.Parse(currentRow[2]);
+						addDataDetail.PaymentType = currentRow[3];
+						addDataDetail.PaymentCount = currentRow[4];
+						addDataDetail.PaymentAmount = decimal.Parse(currentRow[5]);
 
                         // 備考・外貨情報
                         var foreignCurrencyInfo = currentRow[6].Split('　');
                         if (foreignCurrencyInfo.Length == 4) {
-							// 外貨情報
-							addData.ForeignAmount = decimal.Parse(foreignCurrencyInfo[0]);
-							addData.ForeignCurrency = foreignCurrencyInfo[1];
-							addData.ForeignCurrencyRate = decimal.Parse(foreignCurrencyInfo[2]);
+                            // 外貨情報
+                            addDataDetail.ForeignAmount = decimal.Parse(foreignCurrencyInfo[0]);
+							addDataDetail.ForeignCurrency = foreignCurrencyInfo[1];
+							addDataDetail.ForeignCurrencyRate = decimal.Parse(foreignCurrencyInfo[2]);
 
 							var rateDateInfo = foreignCurrencyInfo[3].Split(' ');
-							addData.ForeignCurrencyRateDate = new DateTime(addData.Date.Year, int.Parse(rateDateInfo[0]), int.Parse(rateDateInfo[1]));
+                            addDataDetail.ForeignCurrencyRateDate = new DateTime(addDataDetail.Date.Year, int.Parse(rateDateInfo[0]), int.Parse(rateDateInfo[1]));
 						}
 						else {
-							// 備考
-							addData.Note = currentRow[6];
+                            // 備考
+                            addDataDetail.Note = currentRow[6];
                         }
 
-                        ret.Items.Add(addData);
+						addData.Details.Add(addDataDetail);
+
+						ret.Items.Add(addData);
 					}catch(MalformedLineException malformEx) {
 						_logger.Error(malformEx);
 						throw;
 					}
 				}
 			}
-
 			return ret;
 		}
 

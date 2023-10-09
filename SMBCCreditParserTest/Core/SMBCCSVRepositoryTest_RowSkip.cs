@@ -43,7 +43,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual(new DateTime(2023, 8, 8), actual.Items[0].Date);
+            Assert.AreEqual(new DateTime(2023, 8, 8), actual.Items[0].Details[0].Date);
 
         }
 
@@ -54,7 +54,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual("OPENAI (OPENAI.COM )", actual.Items[0].StoreName);
+            Assert.AreEqual("OPENAI (OPENAI.COM )", actual.Items[0].Details[0].StoreName);
 
         }
 
@@ -65,7 +65,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual(5540M, actual.Items[0].Amount);
+            Assert.AreEqual(5540M, actual.Items[0].Details[0].Amount);
 
         }
 
@@ -76,7 +76,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual("１", actual.Items[0].PaymentType);
+            Assert.AreEqual("１", actual.Items[0].Details[0].PaymentType);
 
         }
 
@@ -87,7 +87,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual("１", actual.Items[0].PaymentCount);
+            Assert.AreEqual("１", actual.Items[0].Details[0].PaymentCount);
 
         }
 
@@ -98,7 +98,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual(554M, actual.Items[0].PaymentAmount);
+            Assert.AreEqual(554M, actual.Items[0].Details[0].PaymentAmount);
 
         }
 
@@ -109,7 +109,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual("", actual.Items[0].Note);
+            Assert.AreEqual("", actual.Items[0].Details[0].Note);
 
         }
 
@@ -120,7 +120,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual(3.8M, actual.Items[0].ForeignAmount);
+            Assert.AreEqual(3.8M, actual.Items[0].Details[0].ForeignAmount);
 
         }
 
@@ -131,7 +131,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual("USD", actual.Items[0].ForeignCurrency);
+            Assert.AreEqual("USD", actual.Items[0].Details[0].ForeignCurrency);
 
         }
 
@@ -142,7 +142,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual(145.98M, actual.Items[0].ForeignCurrencyRate);
+            Assert.AreEqual(145.98M, actual.Items[0].Details[0].ForeignCurrencyRate);
 
         }
 
@@ -153,7 +153,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent);
 
             // Assert
-            Assert.AreEqual(new DateTime(2023,8,8), actual.Items[0].ForeignCurrencyRateDate);
+            Assert.AreEqual(new DateTime(2023,8,8), actual.Items[0].Details[0].ForeignCurrencyRateDate);
 
         }
 
@@ -164,7 +164,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent_Note);
 
             // Assert
-            Assert.AreEqual("ｾﾌﾞﾝｲﾚﾌﾞﾝﾊ-ﾄｲﾝJRｱ/ID", actual.Items[0].Note);
+            Assert.AreEqual("ｾﾌﾞﾝｲﾚﾌﾞﾝﾊ-ﾄｲﾝJRｱ/ID", actual.Items[0].Details[0].Note);
 
         }
 
@@ -176,7 +176,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent_Note);
 
             // Assert
-            Assert.IsNull(actual.Items[0].ForeignAmount);
+            Assert.IsNull(actual.Items[0].Details[0].ForeignAmount);
 
         }
 
@@ -187,7 +187,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent_Note);
 
             // Assert
-            Assert.IsNull(actual.Items[0].ForeignCurrency);
+            Assert.IsNull(actual.Items[0].Details[0].ForeignCurrency);
 
         }
 
@@ -198,7 +198,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent_Note);
 
             // Assert
-            Assert.IsNull(actual.Items[0].ForeignCurrencyRate);
+            Assert.IsNull(actual.Items[0].Details[0].ForeignCurrencyRate);
 
         }
 
@@ -209,7 +209,7 @@ namespace SMBCCreditParserTest.Core
             var actual = _repo.GetSMBCCSV(propTestContent_Note);
 
             // Assert
-            Assert.IsNull( actual.Items[0].ForeignCurrencyRateDate);
+            Assert.IsNull( actual.Items[0].Details[0].ForeignCurrencyRateDate);
 
         }
 
